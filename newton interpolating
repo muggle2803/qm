@@ -1,0 +1,5 @@
+NthDividedDiff[x0_,f0_,startindex_,endindex_]:=
+Module[{x=x0,f=f0,i=startindex,j=endindex,answer},
+if[i==j,Return[f[[i]],
+answer=(NthDividedDiff[x,f,i+1,j]-NthDividedDiff[x,f,i,j-1])/
+(x[[j]]-x[[i]]);Return[answer]];];
