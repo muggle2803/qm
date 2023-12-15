@@ -1,0 +1,10 @@
+RegulaFalsi[a0_,b0_,m_]:=Module[{},a=N[a0];b=N[b0];
+If[f[a]*f[b]>0,Print["Interval is not correct"];Break[],
+c=(a*f[b]-b*f[a])/(f[b]-f[a]);
+k=0;
+While[(k<m&&Abs[f[c]]>10^(-12)),
+If[Sign[f[b]]==Sign[f[c]],b=c,a=c;];
+c=(a*f[b]-b*f[c])/(f[b]-f[a]);
+k=k+1;];
+Print["the result after" , k , "iterations=",NumberForm[c,16]];
+Print["f[c]=",NumberForm[f[c],16]];];]
