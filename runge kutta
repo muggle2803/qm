@@ -1,0 +1,14 @@
+RungeKutta[a0_,b0_,h0_,f_,y0_]:=
+Module[{a=a0,b=b0,n,h=h0,xi,k1,k2,k3,k4},n=(b-a)/h;
+xi=Table[a+(j-1)*h,{j,l,n+1}];
+yi=Table[0,{n+1}];
+yi[[i]]=y0;
+OutputDetails={{0,xi[[1]],y0}};
+For[i=1,i<=n,i++,
+k1=h*f[xi[[i]],yi[[i]]];
+k2=h*f[xi[[i]]+h/2,yi[[i]]+k1/2];
+k3=h*f[xi[[i]]+h/2,yi[[i]]+k2/2];
+k4=h*f[xi[[i]]+h,yi[[i]]+k3];
+yi[[i+1]]=yi[[i]]+((k1+2*k2+2*k3+k4)/6);
+OutputDetails=Append[OutputDetails,{i,N[xi[[i+1]]],N[yi[[i+1]]]}];];
+Print[NumberForm[TableForm[OutputDetails,TableHeadings->{None,{"i","xi","yi"}}],6]];];
