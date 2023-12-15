@@ -1,0 +1,11 @@
+TrapezoidalRule[a_,b_,n_]:=Module[{},h=(b-a)/n;
+y=Table[a+i*h,{i,1,n}];
+Sumodd=0;
+Sumevann=0;
+For[i=1,i<n,i+=2,Sumodd+2*f[x]/.x->y[[i]]];
+For[i=2,i<n,i+=2,Sumeven=Sumevan+2*f[x]/.x->y[[i]]];
+Tn=(h/2)*((f[x]/.x->a)+N[Sumodd]+N[Sumeven]+(f[x]/.x->b));
+Print["For n=" ,n , "Trapezoidal estimate is : ",Tn];
+in=Integrate[f[x],{x,a,b}];
+Print["True value is " , in];
+Print["Absolute error is",Abs[Tn-in]];]
