@@ -1,0 +1,8 @@
+Lagrange[x_,f_,y_]:=Module[{},s=0;m=length[x];p=1;
+For[i=1,i<=m,i=i+1,
+For[j=1,j<=m,j=j+1,
+If[j!=i,
+p=p*(y-x[[j]])/(x[[i]]-x[[j]]);Continue;];];
+s=s+p*f[[i]];p=1;];
+Print["Function value at y=",s];
+Print["Absolute error=",Abs[s-Exp[[y]]];]
