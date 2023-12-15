@@ -1,0 +1,9 @@
+EulerMethodA[a0_,b0_,h0_,f_,y0_]:=Module[{a=a0,b=b0,h=h0,n,xi},
+n=(b-a)/h;
+Print["i","    ","xi[[i]]","   ","yi[[i]]"];
+xi=Table[a+(j-1)*h,{j,1,n+1}];
+yi=Table[0,{n+1}];
+yi[[1]]=y0;
+For[i=1,i<=n,i=i+1,
+Print[i-1,"   ",xi[[i]],"   ",yi[[i]]];
+yi[[i+1]]=yi[[i]]+h*f[xi[[i]],yi[[i]]];];]
