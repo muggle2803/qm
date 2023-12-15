@@ -1,0 +1,2 @@
+SimpsonRule[a_,b_]:=Module[{},k=(b-a)/6*(f[a]+4*f[(a+b)/2]+f[b]);
+Print["Integral value is =",k];]
