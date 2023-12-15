@@ -1,0 +1,11 @@
+lude[A0_,n_]:=Module[{A=A0,i,p},
+U=A0;
+L=IdentityMatrix[n];
+Print[MatrixForm[A0]];
+For[p=1,p<=n-1,p++,
+For[i=p+1,i<=n,i++,
+m=A[[i,p]]/A[[p,p]];
+L[[i,p]]=m;
+A[[i]]=A[[i]]-m*A[[p]];
+U=A;];];
+Print[MatrixForm[L],MatrixForm[U],"=",MatrixForm[A0]];]
