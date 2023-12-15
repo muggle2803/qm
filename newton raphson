@@ -1,9 +1,0 @@
-NewtonRaphson[x0_,max_]:=Module[{},k=0;p0=N[x0];
-p1=p0;
-While[(k<max&&Abs[f[p1]]>0.00000001),
-p0=p1;
-If[f'[p0]==0,Print["p0 is not correct"];Exit[];,
-p1=p0-f[p0]/f'[p0];
-k=k=1;];];
-Print["p after",k,"iterations = "NumberForm[p1,16]];
-Print["f[p]="NumberForm[f[p1],16]];]
